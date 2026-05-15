@@ -16,7 +16,8 @@ license=('GPL')
 
 package () {
     mkdir -p "$pkgdir/etc/user/init.d/"
-    for i in $srcdir; do
+    cd $srcdir
+    for i in *; do
         install -m755 "$srcdir/$i" "$pkgdir/etc/user/init.d/$i"
     done
 }
