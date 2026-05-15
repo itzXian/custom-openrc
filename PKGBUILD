@@ -1,0 +1,22 @@
+pkgname=custom-openrc
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="OpenRC init scripts"
+arch=('any')
+url=""
+depends=(
+'openrc'
+'mpd'
+'mympd'
+'openlist'
+'qbittorrent-nox'
+'snapcast'
+)
+license=('GPL')
+
+package () {
+    mkdir -p "$pkgdir/etc/user/init.d/"
+    for i in $srcdir; do
+        install -m755 "$srcdir/$i" "$pkgdir/etc/user/init.d/$i"
+    done
+}
